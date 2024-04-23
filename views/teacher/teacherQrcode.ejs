@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Teacher Home Page</title>
+  <%- include('../common/head') %>
+    <style>
+      * {
+        text-align: center;
+      }
+
+      .myCenter {
+        top: 100px;
+        margin-top: 100px;
+      }
+
+      .myCenter2 {
+        top: 500px;
+      }
+
+      #imgBox img {
+        width: 300px;
+        height: 300px;
+      }
+    </style>
+</head>
+
+<body>
+  <%- include('../common/teacherNavbar') %>
+    <% if (locals.qrCode) { %>
+      <h1 class="myCenter">Tell Students to Scan this</h1>
+        <div id="imgBox">
+           <img src="<%=qrCode%>" alt="">
+        </div>
+      <% }  %>
+      <% if (locals.lastQrCode) { %>
+        <h1>Your Last QR Code generated was</h1>
+        <h1 class="myCenter">Tell Students to Scan this</h1>
+          <div id="imgBox">
+             <img src="<%=lastQrCode[0]?.qrCodeURL%>" alt="">
+          </div>
+        <% }  %>
+      <% if( locals.error) {  %>
+          <div class="container mt-4">
+            <div class="alert alert-danger" role="alert">
+              <%= locals.error %>
+            </div>
+          </div>
+          <a href="/teacher/<%= teacher._id %>"> <button class="btn btn-primary mt-4">Generate QR Code!</button></a>
+          <% } %>
+</body>
+<%- include('../common/script') %>
+
+</html>

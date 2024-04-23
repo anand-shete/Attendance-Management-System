@@ -1,0 +1,169 @@
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> Teacher Home Page</title>
+      <%- include('../common/head') %>
+        <style>
+          .center {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            }
+            form > button   {
+            height: 50px;
+            padding: 0px 10px;
+            margin: 0 20px;
+            position: relative;
+            top:5px;
+            background-color: #494eea;
+            color: white;
+            border: 0;
+            outline: 0; 
+            border-radius: 9px;
+            box-shadow:0 10px 50px 4px black;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+          } 
+          a > button{
+            height: 50px;
+            padding: 0 10px;
+            margin: 0 20px;
+            position: relative;
+            top:5px;
+            background-color:#2e35ff;
+            color: white;
+            border: 0;
+            outline: 0; 
+            border-radius: 9px;
+            box-shadow:0 10px 50px 4px black;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 500;
+          }
+          footer{
+            margin-top: 100px;
+          }
+          footer > div {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+        </style>
+    </head>
+
+    <body>
+      <%- include('../common/teacherNavbar') %>
+
+      <% if (locals.error) { %>
+        <div class="container mt-4 center">
+          <div class="alert alert-danger" role="alert">
+            <%= locals.error %>
+          </div>
+        </div>
+        <% } %>
+
+      <% if (locals.teacher) { %>
+        <h1>Welcome, <%= teacher.fullname %> </h1>
+
+
+        <% if (locals.teacherId) { %>
+          <div class="center">
+            <form action="/teacher/scan/<%=teacherId%>" method="post">
+              <button type="submit" class="qrCodeContainer mt-3">Generate QR Code</button>
+            </form>
+            <a href="/teacher/showQrCode">
+              <button type="submit" class="mt-3">Show Last QR Code</button>
+            </a>
+          </div>
+          <h1 class="mt-5 center">Attendance Record for your lectures is: </h1>
+
+
+          <% if (locals.qrcode) { %>
+            <%
+            function formatDate(date) {   //MonthAndDay
+            return new Date(date).toLocaleDateString('en-US', { month: 'short', day: '2-digit' });} 
+            function formatTime(date) { //time
+            return new Date(date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+            }
+            %>
+            <% qrcode.forEach(qrCode => { %>
+                  <%  
+                  let arr = [];
+                  arr.push(qrCode.createdByTeacher[0]?.date);
+                  %>
+                  <% arr.forEach(date => { %>
+                <%
+                  const date1 = formatDate(date); %>  
+                <h1 style="margin-bottom: -25px;"> <%=date1%></h1>
+                <table class="center" style="border-collapse: separate;border-spacing: 20px 0 ;margin-top: 30px;">
+                  <tr>
+                    <th> PRN   </th>
+                    <th> Student Name </th>
+                    <th> Scan Time    </th>
+                    <th> Status </th>
+                  </tr>
+                          <% 
+                            let arr2 = []
+                            arr2.push(qrCode.markedByStudent);
+                            %>
+                        <% arr2.flat().forEach(markedByStudent => {  %>
+                          <%
+                            let scanDate = formatDate(markedByStudent.scanTime)
+                            const scanTime=formatTime(markedByStudent.scanTime);
+                            const min = scanTime.toString().split(" ")[0].split(":")[1]; 
+                            if(min >= 40 && min<60) imgSrc = '/images/angryEmoji.avif';
+                            else if(min>=0 && min<=20) imgSrc= "/images/happyEmoji.jpg"
+                            else imgSrc='/images/neutralEmoji.png'; 
+                            %>
+                            <% if (scanDate == date1) { %>
+                              <tr>
+                                <td><%=markedByStudent.student.prn %></td>
+                                <td><%=markedByStudent.student.fullname %></td>
+                                <td><%=scanTime%></td>
+                                <td><img src="<%= imgSrc %>" 
+                                  width="50px" height="50px" id="img"
+                                  alt="emoji"></td>
+                                </tr>
+                            <% } %>
+                              
+                              
+                              
+                              <% }) %>
+                </table>
+                <% }) %>
+                <% }) %>
+                <footer>
+                  <div class="div">
+                    <img src="/images/happyEmoji.jpg" alt="" style="width: 50px;"> - Student was on Time
+                  </div>
+                  <div class="div" style="margin-left: 45px;">
+                    <img src="/images/neutralEmoji.png" alt="" style="width: 50px;"> - Student interrupted Lecture
+                  </div>
+                  <div class="div" style="margin-left: -34px;">
+                    <img src="/images/angryEmoji.avif" alt="" style="width: 50px;" > - Student was Late
+                  </div>
+                </footer>
+
+
+        <% } %>
+
+        <% } %>     <!--locals.teacherId-->
+      <% } else { %>  <!--locals.teacher-->
+        <h1> Please Sign In Teacher</h1>
+          <a href="/teacher/signin">
+            <button class="btn btn-primary mt-4"> Sign In!</button>
+          </a>
+        <% } %>
+    </body>
+    <%- include('../common/script') %>
+    <script>
+       let foot = document.querySelector('footer');
+      console.log(foot.getAttribute('class'));
+    </script>
+    </html>

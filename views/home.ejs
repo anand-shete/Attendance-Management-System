@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <%- include('./common/head') %>
+    <style>
+        /* .container {
+            margin-top: 30%;
+        } */
+        .container > div {
+            margin: 50px 0;
+        }
+    </style>
+</head>
+<body>
+    <%- include('./common/navbar') %>
+    <div class="container">
+        <div>
+            <a href="/student"><button class="btn btn-primary">I am a Student</button></a>
+        </div>
+        <div>
+            <a href="/teacher"><button class="btn btn-primary">I am a Teacher</button></a>
+        </div>
+    </div>
+</body>
+<%- include('./common/script') %>
+</html>
