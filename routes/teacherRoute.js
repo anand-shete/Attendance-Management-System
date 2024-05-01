@@ -31,7 +31,7 @@ router.post('/signup', async (req, res) => {
 })
 
 router.get('/signin', (req, res) => {
-    res.render('./teacher/teacherSignin');
+    res.render('./teacher/teacherSignin');  
 })
 router.post('/signin', async (req, res) => {
     const { faculty_id, password } = req.body;
