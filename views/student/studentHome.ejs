@@ -31,9 +31,9 @@
                 <% if (locals.allQrCodes) { %>
                     <%
                     function formatDate(date) {   //MonthAndDay
-                    return new Date(date).toLocaleDateString('en-US', { month: 'short', day: '2-digit' });} 
+                    return new Date(date).toLocaleDateString('en-US', { month: 'short', day: '2-digit',timeZone: 'Asia/Kolkata' });} 
                     function formatTime(date) { //time
-                    return new Date(date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });}
+                    return new Date(date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit',timeZone: 'Asia/Kolkata' });}
                     %>
                 <table style="border-collapse: separate; border-spacing: 20px 0 ;margin-top: 30px;">
                     <tr>
@@ -47,7 +47,8 @@
                         <% qrCode.markedByStudent.forEach(studentData => {  %>
                         <%  if(studentData.student.toString() == student._id.toString()) {  %>
                              <%   const date = qrCode.createdByTeacher[0]?.date;
-                                const formattedDate=formatDate(date);const formattedTime=formatTime(studentData.scanTime);
+                                const formattedDate=formatDate(date);
+                                const formattedTime=formatTime(studentData.scanTime);
                                 const min = formattedTime.toString().split(" ")[0].split(":")[1]; 
                                 if(min >= 40 && min<60) imgSrc = '/images/angryEmoji.avif';
                                 else if(min>=0 && min<=20) imgSrc= "/images/happyEmoji.jpg"
