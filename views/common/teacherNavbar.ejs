@@ -21,22 +21,6 @@
           <li class="nav-item">
             <a class="nav-link" aria-disabled="true" href="/teacher/logout">Log Out</a>
           </li>
-          <% if (locals.teacher) { %>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
-              aria-expanded="false">
-                <%- teacher.fullname %>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">View Attendance</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="/teacher/logout">Log Out</a></li>
-              </ul>
-            </li>
-            <% }%>
         </ul>
       </div>
     </div>

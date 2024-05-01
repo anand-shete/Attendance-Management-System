@@ -156,14 +156,13 @@
         <% } %>     <!--locals.teacherId-->
       <% } else { %>  <!--locals.teacher-->
         <h1> Please Sign In Teacher</h1>
-          <a href="/teacher/signin">
+          <a href="/teacher/signin" style="display: inline-block;">
             <button class="btn btn-primary mt-4"> Sign In!</button>
+          </a>
+          <a href="/teacher/signup">
+            <button class="btn btn-primary mt-4"> Sign Up!</button>
           </a>
         <% } %>
     </body>
     <%- include('../common/script') %>
-    <script>
-       let foot = document.querySelector('footer');
-      console.log(foot.getAttribute('class'));
-    </script>
     </html>

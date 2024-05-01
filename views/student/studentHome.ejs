@@ -13,6 +13,7 @@
                 align-items: center;
                 justify-content: center;
             }
+
         </style>
 </head>
 
@@ -76,8 +77,11 @@
             </div>
             <% } else { %>
                 <h1> Please Sign In to View Your Attendance</h1>
-                <a href="/student/signin">
-                    <button type="submit" class="btn btn-primary mt-4">Sign In!</button>
+                <a href="/student/signin" style="margin-right:10px ;display: inline-block;">
+                    <button class="btn btn-primary mt-4">Sign In!</button>
+                </a>
+                <a href="/student/signup" style="margin-left:10px ;display: inline-block;">
+                    <button class="btn btn-primary mt-4">Sign Up!</button>
                 </a>
                 <% } %>
 </body>
