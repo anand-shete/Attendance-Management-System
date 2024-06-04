@@ -7,9 +7,9 @@ JWT Authentication for users that stores data of students and teachers in a cook
 
 // To use my project
 
-Step-1 : Clone the git-repository
-Step-2 : Inside project root directory, run command 'npm install' to install all the dependencies
-Step-3 : Ensure that MongoDB is intalled in your system and run command 'node ./index.js' 
+Step-1 : Clone the git-repository                                                                                                                                     
+Step-2 : Inside project root directory, run command 'npm install' to install all the dependencies                                                                     
+Step-3 : Ensure that MongoDB is intalled in your system and run command 'node ./index.js'                                                                             
 
 If it says,
 Server Started! ON PORT: 8000
