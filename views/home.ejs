@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
     <title>Home Page</title>
-    <%- include('./common/head') %>
-    <style>
-        /* .container {
-            margin-top: 30%;
-        } */
-        .container > div {
-            margin: 50px 0;
-        }
-    </style>
 </head>
+
 <body>
-    <%- include('./common/navbar') %>
+    <nav>
+        <a href="/">Attendance Marker</a>
+        <a href="/student">Student</a>
+        <a href="/teacher">Teacher</a>
+    </nav>
     <div class="container">
-        <div>
-            <a href="/student"><button class="btn btn-primary">I am a Student</button></a>
+        <div class="content">
+            <h1 data-name="Welcome">Welcome</h1>
+            <p>QR Code based Attendance Marker using NodeJs, Express and MongoDB</p>
+            <p>Used npm packages like 'qrcode' for generating qrocde, 'html5-qrcode' for implmenting scanner and 'bcrypt' for password hashing</p>
+            <p>JWT Authentication for both Student and Teacher routes</p>
         </div>
-        <div>
+        <div class="buttons">
+            <a href="/student"><button class="btn btn-primary">I am Student</button></a>
             <a href="/teacher"><button class="btn btn-primary">I am a Teacher</button></a>
         </div>
     </div>
+    <footer>
+        Copyright
+    </footer>
 </body>
-<%- include('./common/script') %>
+
 </html>

@@ -29,13 +29,4 @@ checkCookieForAuthenticationTeacher=(cookieName)=>{
         }  
     }
 }
-// restrictTo=(roles =[])=>{           //authentication
-//     return (req,res,next)=>{
-//         if(!req.student || req.teacher) return res.redirect('/');
-
-//         if(!roles.includes(req.student.role)) return res.end('UnAuthorized!')
-
-//         return next();
-//     }
-// }
 module.exports= {checkCookieForAuthenticationStudent , checkCookieForAuthenticationTeacher}

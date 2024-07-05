@@ -1,62 +1,57 @@
-<!DOCTYPE html>      
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Student Scan Page</title>
-    <%- include('../common/head') %>
-    <style>
-      .center {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-      }
-      #reader {
-          width: 500px;
-      }
-      #result {
-          text-align: center;
-          font-size: 1.5rem;
-      }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Student Scan Page</title>
+  <link rel="stylesheet" href="/stylesheets/navbar.css">
+  <link rel="stylesheet" href="/stylesheets/studentScan.css">
 </head>
-<body> 
-      <%- include('../common/studentNavbar') %>
-      <% if (locals.error) { %>
-        <div class="container mt-4">
-          <div class="alert alert-danger" role="alert">
-            <%= locals.error %>
-          </div>
-        </div>
-        <% } %>
+
+<body>
+  <nav>
+    <a href="/">Attendance Marker</a>
     <% if (locals.student) { %>
-        <h1>Welcome, <%= student.fullname %></h1>
-        <div class="center">
-          <div id="reader"></div>
-        </div>
+      <a href="/student/<%= student._id %>"> Student </a>
+      <% } else { %>
+        <a href="/student"> Student </a>
+        <% } %>
+          <a href="/student/signin">Sign In</a>
+          <a href="/student/signup">Sign Up</a>
+  </nav>
+
+  <% if (locals.student) { %>
+    <h1>Welcome, <%= student.fullname %>
+    </h1>
+    <div class="center">
+      <div id="reader"></div>
+    </div>
     <% } else { %>
-    <h1> Please Sign In to View Your Attendance</h1>
-    <% } %>
+      <h1> Please Sign In to View Your Attendance</h1>
+      <% } %>
+      
 </body>
 <%- include('../common/script') %>
-<script src="https://unpkg.com/html5-qrcode"></script> 
-<!-- <script type="module" src="../../node_modules/html5-qrcode/html5-qrcode.min.js"> </script> -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <!-- <script type="module" src="../../node_modules/html5-qrcode/html5-qrcode.min.js"> </script> -->
 
-<script>
-   success = (result,resultObject)=>{
-        const qrCodeData = JSON.parse(result);
-        const redirectTo = `/student/attendanceMarked/${qrCodeData.redirectTo}`;
-        // console.log(redirectTo);
-        window.location.href = redirectTo; // Redirect the user
-        scanner.clear();
-        document.getElementById('reader').remove();  //removes this element from DOM
+  <script>
+    success = (result, resultObject) => {
+      const qrCodeData = JSON.parse(result);
+      const redirectTo = `/student/attendanceMarked/${qrCodeData.redirectTo}`;
+      // console.log(redirectTo);
+      window.location.href = redirectTo; // Redirect the user
+      scanner.clear();
+      document.getElementById('reader').remove();  //removes this element from DOM
     }
     error = (err) => console.log(err);
 
     const scanner = new Html5QrcodeScanner('reader', {  //(id, options)
-        fps:10, qrbox:250,
+      fps: 10, qrbox: 250,
     });
-    scanner.render(success , error);
+    scanner.render(success, error);
 
-</script>
+  </script>
+
 </html>

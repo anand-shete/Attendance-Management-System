@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.please-sign-in {
+    margin: 100px 0 0 0;
+}
+
+.please-sign-in-btns {
+    padding: 15px 10px;
+    background-color: rgb(40, 38, 38);
+    color: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin:50px 10px;
+    cursor: pointer;
+}
+.please-sign-in-btns:hover {
+    background-color: #353535;
+    transition: transform ease 0.1s 0s;
+    transform: scale(1.2);
+    border-radius: 8px;
+}
+
+
+/* Student Home Page */
+h1 {
+    margin: 50px 0 0 0 ;
+}
+h3 {
+    margin: 0 0 50px 0 ;
+}
+.scan-qr-btn {
+    padding: 15px 10px;
+    background-color: rgb(40, 38, 38);
+    color: white;
+    border: 1px solid black;
+    border-radius: 7px; 
+    margin: 10px 0 50px 0;
+    cursor: pointer;
+}
+.scan-qr-btn:hover {
+    background-color: #353535;
+    transition: transform ease 0.1s 0s;
+    transform: scale(1.2);
+    border-radius: 8px;
+}
+
+table {
+    text-align: center;
+    margin: auto;
+}

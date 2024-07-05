@@ -41,7 +41,7 @@ router.post('/signin', async (req, res) => {
         return res.cookie("teacherToken", token).redirect(`/teacher/${teacher._id}`)
     } catch (error) {
         return res.render('./teacher/teacherSignin', {
-            error: 'Incorrect Faculty ID or Password'
+            error: 'Incorrect Faculty ID or Password!'
         })
     }
 })

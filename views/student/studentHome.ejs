@@ -5,28 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Student Home Page</title>
-    <%- include('../common/head') %>
-        <style>
-            .center {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-
-        </style>
+    <link rel="stylesheet" href="/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/stylesheets/studentHome.css">
 </head>
 
 <body>
-    <%- include('../common/studentNavbar') %>
+    <nav>
+        <a href="/">Attendance Marker</a>
+        <a href="/student">Student</a>
+        <a href="/student/signin">Sign In</a>
+        <a href="/student/signup">Sign Up</a>
+    </nav>
 
         <% if (locals.student) { %>
-            <div class="center">
+            <div >
                 <h1> Welcome, <%= student.fullname %></h1>
                 <a href="/student/scan" style="margin: 40px 0;">
-                    <button class="btn btn-primary" type="submit">Scan QR </button>
+                    <button class="scan-qr-btn" type="submit">Scan QR </button>
                 </a>
-                <h3 style="margin-bottom: 30px;">Your Attendance History is :</h3>
+                <h3>Your Previous Attendance History is :</h3>
 
 
                 <% if (locals.allQrCodes) { %>
@@ -76,12 +73,12 @@
                 <% } %>
             </div>
             <% } else { %>
-                <h1> Please Sign In to View Your Attendance</h1>
-                <a href="/student/signin" style="margin-right:10px ;display: inline-block;">
-                    <button class="btn btn-primary mt-4">Sign In!</button>
+                <h1 class="please-sign-in"> Please Sign In to View Your Attendance</h1>
+                <a href="/student/signin" >
+                    <button class="please-sign-in-btns">Sign In!</button>
                 </a>
-                <a href="/student/signup" style="margin-left:10px ;display: inline-block;">
-                    <button class="btn btn-primary mt-4">Sign Up!</button>
+                <a href="/student/signup" >
+                    <button class="please-sign-in-btns">Sign Up!</button>
                 </a>
                 <% } %>
 </body>

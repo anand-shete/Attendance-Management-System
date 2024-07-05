@@ -1,0 +1,22 @@
+* {
+    text-align: center;
+}
+
+.myCenter {
+    top: 100px;
+    margin-top: 100px;
+}
+
+.myCenter2 {
+    top: 500px;
+}
+
+#imgBox img {
+    width: 300px;
+    height: 300px;
+}
+
+h1 {
+    margin-top: 50px;
+    font-weight: 400;
+}

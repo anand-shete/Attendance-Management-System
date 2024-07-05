@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    margin: 20px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#reader {
+    width: 500px;
+}
+#result {
+    text-align: center;
+    font-size: 1.5rem;
+}
