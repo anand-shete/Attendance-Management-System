@@ -1,3 +1,4 @@
+
                                                                                                                                           This Project uses QR Code scanner with the 'html5-qrcode' npm package.
 JWT Authentication that stores data of students and teachers in a cookie.
 It also uses 'crypto' npm package to generated hashed passwords that are saved to MongoDB cluster.                                                                                                                                                                      
