@@ -1,19 +1,35 @@
+# Attendance Management System
+A full-stack attendance management system tracking student attendance and generating reports, built with Node.js, Express, and MongoDB for database administration, featuring EJS for dynamic front-end rendering.
 
-This Project uses QR Code scanner with the 'html5-qrcode' npm package.
-JWT Authentication that stores data of students and teachers in a cookie.
-It also uses 'crypto' npm package to generated hashed passwords that are saved to MongoDB cluster.                                                                                                                                                                      
-                                                                                                                                                                    
-                                                                                                                                                                      
 
-// To use my project
+## Render URL
+If you wish to view this project: [Render Link](https://attendance-marker-i7it.onrender.com)
 
-Step-1 : Clone the git-repository                                                                                                                                     
-Step-2 : Inside project root directory, run command 'npm install' to install all the dependencies                                                                     
-Step-3 : Ensure that MongoDB is intalled in your system and run command 'node ./index.js'                                                                             
 
-If it says,                                                                                                                                                          
-Server Started! ON PORT: 8000                                                                                                                                        
-Db connected                                                                                                                                                          
+## Tech Stack
+- Libraries: Node.js with Express, EJS
+- Database: MongoDB Atlas
+- Tools: crypto, jsonwebtoken, qrcode, html5-qrcode, mongoose
 
-you are good to go...                                                                                                                                                
-message me for any queries.
+
+## Installation
+1. Clone the repository
+```
+git clone https://github.com/anand-shete/attendance-marker.git
+cd attendance-marker
+```
+
+2. Install dependencies
+```
+npm install
+```
+
+3. Set up environment variables: Replace the .env.example file and add your variables in it
+
+4. Start the server
+```
+npm run start
+```
+
+## Contributing
+Contributions are welcome! If you have any suggestions or improvements, feel free to fork the repository and create a pull request.

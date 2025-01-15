@@ -15,8 +15,8 @@
     "qrcode": "^1.5.3"
   },
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "build-css": "tailwindcss -i ./public/stylesheets/inputcss.css  -o ./public/stylesheets/output.css --watch"
   },
   "devDependencies": {
