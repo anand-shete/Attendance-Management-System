@@ -14,16 +14,8 @@ const PORT = process.env.PORT || 3000;
 (async () => {
     await connectDB();
 
-    const frontendUrl1 = process.env.FRONTEND_URL1;
-    const frontendUrl2 = process.env.FRONTEND_URL2;
-    const frontendUrl3 = process.env.FRONTEND_URL3;
-    if (!frontendUrl1 && process.env.NODE_ENV === 'production') {
-        console.error('FRONTEND_URL is not set in production!');
-        process.exit(1);
-    }
-
     app.use(cors({
-        origin: [frontendUrl1, frontendUrl2, frontendUrl3],
+        origin: process.env.FRONTEND_URL,
         credentials: true,
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         allowedHeaders: ['Content-Type', 'Authorization'],
@@ -32,6 +24,8 @@ const PORT = process.env.PORT || 3000;
     app.use(express.urlencoded({ extended: false }))
     app.use(express.json())
     app.use(cookieParser());
+
+    app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));
 
     app.use('/api', staticRoute);
     app.use('/api/admin', adminRoute);

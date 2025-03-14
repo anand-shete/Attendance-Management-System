@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
         const token = generateTokenForStudent(student);
         if (process.env.MODE === "production") {
             return res.cookie("studentToken", token, {
-                maxAge: 3600000, httpOnly: true, secure: true
+                maxAge: 3600000, httpOnly: true, secure: true, sameSite: "none", path: "/"
             }).status(200).json({ message: "Login Success!", id: student._id })
         } else {
             return res.cookie("studentToken", token, {

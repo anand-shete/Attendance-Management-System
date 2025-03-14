@@ -53,7 +53,7 @@ router.post('/login', async (req, res) => {
 
         if (process.env.MODE === "production") {
             return res.cookie("teacherToken", token, {
-                maxAge: 3600000, httpOnly: true, secure: true
+                maxAge: 3600000, httpOnly: true, secure: true, sameSite: "none", path: "/"
             }).status(200).json({ message: "Login Success!", id: teacher._id })
         } else {
             return res.cookie("teacherToken", token, {
