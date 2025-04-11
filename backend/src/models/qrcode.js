@@ -17,6 +17,7 @@ const qrcodeSchema = new mongoose.Schema({
     markedByStudents: [{
         _id: false,
         student: {
+            unique:true,
             type: mongoose.Types.ObjectId,
             ref: "student",
         },
