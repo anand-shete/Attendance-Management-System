@@ -3,7 +3,7 @@ import { NavLink } from "react-router";
 export default function Footer() {
   return (
     <footer className="w-full bg-black text-white py-6 text-center">
-      <p>© 2025 Attendance Management System. All rights reserved.</p>
+      <p>© 2025 RollCall. All rights reserved.</p>
       <div className="flex justify-center gap-4 mt-2">
         <NavLink
           to="https://github.com/anand-shete/Attendance-Management-System"

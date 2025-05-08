@@ -1,7 +1,8 @@
-import { NavLink, useLocation, useNavigate } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { useSelector } from "react-redux";
+import { Github } from "lucide-react";
 
 export default function Navbar() {
   const teacher = useSelector((state) => state.teacher);
@@ -10,19 +11,19 @@ export default function Navbar() {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const { pathname } = useLocation();
   return (
-    <nav className="h-22 max-w-screen flex flex-row justify-around items-center bg-slate-800 text-white">
+    <nav className="fixed z-50 w-full h-22 flex flex-row justify-around items-center bg-slate-800 text-white border-b-1 bg-opacity-95">
       {/* Navbar */}
       <NavLink to="/">
         <img
-          src="/logos/logo.jpg"
-          alt="attendance_marker_logo"
-          className="h-18 rounded-lg bg-white"
+          src="/logos/logo.png"
+          alt="RollCall_logo"
+          className="h-40  rounded-lg bg-slate-800"
         />
       </NavLink>
 
       {/* Home button for mobile devices */}
       <ul className="flex flex-row justify-center items-center space-x-5 lg:space-x-16">
-        <li className="px-3 py-2 rounded-md md:hidden hover:bg-orange-500 hover:text-black hover:shadow-custom hover:shadow-orange-300 hover:scale-120 transition cursor-pointer">
+        <li className="px-2 py-2 rounded-md md:hidden hover:bg-orange-500 hover:text-black hover:shadow-custom hover:shadow-orange-300 hover:scale-120 transition cursor-pointer">
           {pathname.length === 1 && <NavLink to="/">Home</NavLink>}
           {pathname.startsWith("/teacher") && (
             <NavLink to="/teacher/dashboard">Dashboard</NavLink>
@@ -51,7 +52,7 @@ export default function Navbar() {
             to="https://github.com/anand-shete/Attendance-Management-System?tab=readme-ov-file#attendance-management-system"
             target="_blank"
           >
-            Read the Docs
+            Read the Guide
           </NavLink>
         </li>
 
@@ -234,11 +235,7 @@ export default function Navbar() {
         target="_blank"
         className="px-2 hidden md:flex flex-row items-center rounded-xl border-1 border-white bg-black hover:scale-120 transition hover:shadow-custom hover:shadow-white"
       >
-        <img
-          src="/logos/github.png"
-          alt="github-logo"
-          className="h-10 rounded-full bg-white"
-        />
+        <Github className="h-10 w-10" />
         <span>Code</span>
       </NavLink>
     </nav>

@@ -1,5 +1,5 @@
-# Attendance Management System
-A full-stack web application built using React.js, Node.js, Express.js, and MongoDB. It enables teachers to generate QR codes for attendance marking, while students can scan these codes to record their presence. The system ensures secure authentication, real-time attendance tracking, and role-based access control.
+# RollCall
+A full-stack web application built using React.js, Node.js, Express.js, and MongoDB. It enables teachers to generate QR codes for marking attendance, while students can scan these codes to record their presence. The system ensures secure authentication, real-time attendance tracking, and role-based access control.
 
 
 ## Deployed Link
@@ -30,8 +30,8 @@ If you want a guide on how to use the project, refer to the YouTube video below:
 ## Installation
 1. Clone the repository
 ```
-git clone https://github.com/anand-shete/Attendance-Management-System.git
-cd Attendance-Management-System
+git clone https://github.com/anand-shete/RollCall.git
+cd RollCall
 ```
 
 2. Install dependencies for backend and frontend
